@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>깔끔제이 | 소파·매트리스 방문 청소 전문</title>
+<meta name="description" content="소파·매트리스·패브릭 홈케어 전문 깔끔제이. 수원·광진구·서울 동부권 방문 청소. 보이지 않는 오염까지 관리합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy: #1c3557;
+    --navy-light: #2a4a6e;
+    --blue: #3a7bd5;
+    --blue-light: #a8c8e8;
+    --cream: #f8f7f4;
+    --warm: #f0ede6;
+    --text: #1a1a1a;
+    --text-muted: #666;
+    --white: #ffffff;
+    --accent: #e8734a;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--text);
+    background: var(--cream);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(28, 53, 87, 0.95);
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-brand {
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: -0.5px;
+  }
+
+  .nav-brand span { color: var(--blue-light); }
+
+  .nav-cta {
+    background: var(--accent);
+    color: var(--white);
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s, opacity 0.2s;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+  .nav-cta:hover { transform: scale(1.05); opacity: 0.9; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, #1a4a7a 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 120px 24px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+    top: -200px; right: -200px;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.02);
+    bottom: -100px; left: -100px;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(168,200,232,0.15);
+    border: 1px solid rgba(168,200,232,0.3);
+    color: var(--blue-light);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-title {
+    font-size: clamp(32px, 6vw, 56px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.2;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  .hero-title .highlight { color: var(--blue-light); }
+
+  .hero-sub {
+    font-size: clamp(14px, 2.5vw, 18px);
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 500px;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--white);
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(232,115,74,0.4);
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(232,115,74,0.5);
+  }
+
+  .btn-secondary {
+    background: rgba(255,255,255,0.1);
+    color: var(--white);
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: background 0.2s;
+  }
+
+  .btn-secondary:hover { background: rgba(255,255,255,0.15); }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 60px;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+
+  .stat { text-align: center; }
+
+  .stat-num {
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 4px;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 80px 24px; }
+
+  .container { max-width: 900px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--blue);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+    margin-bottom: 40px;
+  }
+
+  /* ── PROBLEM ── */
+  .problem { background: var(--white); }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .problem-card {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 28px;
+    border-left: 4px solid var(--navy);
+    transition: transform 0.2s;
+  }
+
+  .problem-card:hover { transform: translateY(-4px); }
+
+  .problem-emoji { font-size: 32px; margin-bottom: 12px; display: block; }
+
+  .problem-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .problem-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* ── SERVICES ── */
+  .services { background: var(--cream); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .service-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 32px 28px;
+    text-align: center;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy), var(--blue));
+  }
+
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  }
+
+  .service-icon { font-size: 40px; margin-bottom: 16px; display: block; }
+
+  .service-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .service-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .service-price {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--accent);
+  }
+
+  .service-price-sub {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  /* ── WHY ── */
+  .why { background: var(--navy); }
+
+  .why .section-label { color: var(--blue-light); }
+  .why .section-title { color: var(--white); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  .why-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 28px;
+    transition: background 0.2s;
+  }
+
+  .why-card:hover { background: rgba(255,255,255,0.1); }
+
+  .why-num {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--blue-light);
+    opacity: 0.4;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .why-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .why-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+  }
+
+  /* ── PROCESS ── */
+  .process { background: var(--white); }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0;
+    position: relative;
+  }
+
+  .process-step {
+    text-align: center;
+    padding: 24px 16px;
+    position: relative;
+  }
+
+  .process-step:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: var(--blue-light);
+  }
+
+  .process-circle {
+    width: 56px; height: 56px;
+    background: var(--navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin: 0 auto 12px;
+  }
+
+  .process-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .process-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ── AREA ── */
+  .area { background: var(--cream); }
+
+  .area-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  .area-tag {
+    background: var(--white);
+    border: 2px solid var(--navy);
+    color: var(--navy);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 20px;
+  }
+
+  .area-tag.main {
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    text-align: center;
+    padding: 80px 24px;
+  }
+
+  .cta-section .section-title { color: var(--white); margin-bottom: 16px; }
+
+  .cta-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 32px;
+    line-height: 1.7;
+  }
+
+  .cta-kakao {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #FEE500;
+    color: #3C1E1E;
+    padding: 16px 40px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(254,229,0,0.4);
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+  .cta-kakao:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(254,229,0,0.5);
+  }
+
+  .cta-phone {
+    display: block;
+    margin-top: 16px;
+    color: rgba(255,255,255,0.5);
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  .cta-phone strong {
+    color: rgba(255,255,255,0.8);
+    font-weight: 700;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #111;
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+
+  footer strong { color: rgba(255,255,255,0.7); }
+
+  /* ── FLOATING CTA ── */
+  .floating-cta {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 99;
+    background: #FEE500;
+    color: #3C1E1E;
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    text-decoration: none;
+    transition: transform 0.2s;
+    animation: pulse 2s infinite;
+  }
+
+  .floating-cta:hover { transform: scale(1.1); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+    50% { box-shadow: 0 4px 30px rgba(254,229,0,0.6); }
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 600px) {
+    .hero-stats { gap: 24px; }
+    .process-step:not(:last-child)::after { display: none; }
+    nav { padding: 12px 16px; }
+    .nav-brand { font-size: 15px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand"><span>깔끔</span>제이</div>
+  <a href="https://pf.kakao.com/_XxkrxjX" target="_blank" class="nav-cta">카카오 문의</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">소파 · 매트리스 · 패브릭 홈케어 전문</div>
+  <h1 class="hero-title">
+    보이지 않는 오염까지<br>
+    <span class="highlight">공간의 컨디션</span>을 관리합니다
+  </h1>
+  <p class="hero-sub">
+    흡출식 전문 장비로 패브릭 내부 깊숙이 침투한<br>
+    땀·피지·진드기·냄새까지 제거합니다
+  </p>
+  <div class="hero-buttons">
+    <a href="https://pf.kakao.com/_XxkrxjX" target="_blank" class="btn-primary">💬 카카오로 문의하기</a>
+    <a href="#services" class="btn-secondary">서비스 보기</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">2년+</div>
+      <div class="stat-label">운영 경력</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">150+</div>
+      <div class="stat-label">시공 사례</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">익일</div>
+      <div class="stat-label">사용 가능</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">24h</div>
+      <div class="stat-label">견적 안내</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="container">
+    <div class="section-label">이런 분들께 추천해요</div>
+    <h2 class="section-title">우리 집 소파, 마지막으로<br>청소한 게 언제예요?</h2>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <span class="problem-emoji">🐶</span>
+        <div class="problem-title">반려동물과 함께 사는 분</div>
+        <div class="problem-desc">반려동물 털·오염이 패브릭 내부에 쌓여 냄새가 심해지고 있다면</div>
+      </div>
+      <div class="problem-card">
+        <span class="problem-emoji">🏠</span>
+        <div class="problem-title">이사 전후 위생이 걱정되는 분</div>
+        <div class="problem-desc">전 세입자가 사용하던 매트리스, 눈에는 깨끗해 보여도 안에는?</div>
+      </div>
+      <div class="problem-card">
+        <span class="problem-emoji">👶</span>
+        <div class="problem-title">아이와 함께 사용하는 분</div>
+        <div class="problem-desc">진드기·세균이 걱정되는 분들, 아이의 건강한 수면 환경을 위해</div>
+      </div>
+      <div class="problem-card">
+        <span class="problem-emoji">📅</span>
+        <div class="problem-title">1년 이상 청소 안 한 소파</div>
+        <div class="problem-desc">소파 산 지 1년이 넘었는데 한 번도 청소를 안 하셨다면</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-label">서비스 안내</div>
+    <h2 class="section-title">전문 장비로 내부 오염까지<br>제거합니다</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">🛋</span>
+        <div class="service-name">소파 청소</div>
+        <div class="service-desc">패브릭·가죽 소파 흡출식 딥클리닝. 눈에 보이지 않는 내부 오염까지 완전 제거</div>
+        <div class="service-price">12만원~</div>
+        <div class="service-price-sub">패브릭 4인 소파 기준</div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🛏</span>
+        <div class="service-name">매트리스 청소</div>
+        <div class="service-desc">수면 중 쌓인 땀·피지·진드기 제거. 피톤치드 항균 마무리 처리</div>
+        <div class="service-price">9만원~</div>
+        <div class="service-price-sub">퀸 매트리스 기준</div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🪑</span>
+        <div class="service-name">패브릭 의자 청소</div>
+        <div class="service-desc">사무용·다이닝 패브릭 의자 전문 클리닝. 기업 정기계약 가능</div>
+        <div class="service-price">별도 문의</div>
+        <div class="service-price-sub">수량·오염도에 따라 상이</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why">
+  <div class="container">
+    <div class="section-label">왜 깔끔제이인가</div>
+    <h2 class="section-title">믿을 수 있는 업체<br>선택 기준 3가지</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-num">01</div>
+        <div class="why-title">정확한 진단</div>
+        <div class="why-desc">사진 한 장만 보내주시면 오염 상태를 정확히 파악하고 솔직하게 안내드립니다. 불필요한 시공은 권하지 않습니다.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-num">02</div>
+        <div class="why-title">흡출식 전문 장비</div>
+        <div class="why-desc">스팀만으로는 표면 청소에 그칩니다. 흡출식 장비로 패브릭 내부 오염까지 끌어내야 진짜 청소입니다.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-num">03</div>
+        <div class="why-title">시공 다음 날 사용</div>
+        <div class="why-desc">건조까지 완료 후 시공 다음 날부터 바로 사용 가능합니다. 일상에 불편함이 없도록 진행합니다.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="container">
+    <div class="section-label">진행 과정</div>
+    <h2 class="section-title">간단하게 진행됩니다</h2>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-circle">📸</div>
+        <div class="process-title">사진 문의</div>
+        <div class="process-desc">오염 사진 +<br>지역 전송</div>
+      </div>
+      <div class="process-step">
+        <div class="process-circle">💬</div>
+        <div class="process-title">견적 안내</div>
+        <div class="process-desc">24시간 내<br>카카오 답변</div>
+      </div>
+      <div class="process-step">
+        <div class="process-circle">📅</div>
+        <div class="process-title">일정 예약</div>
+        <div class="process-desc">방문 날짜<br>조율</div>
+      </div>
+      <div class="process-step">
+        <div class="process-circle">✨</div>
+        <div class="process-title">방문 시공</div>
+        <div class="process-desc">전문 장비로<br>딥클리닝</div>
+      </div>
+      <div class="process-step">
+        <div class="process-circle">🌿</div>
+        <div class="process-title">익일 사용</div>
+        <div class="process-desc">다음 날부터<br>바로 사용</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AREA -->
+<section class="area">
+  <div class="container">
+    <div class="section-label">방문 가능 지역</div>
+    <h2 class="section-title">수원부터 서울 동부권까지<br>직접 방문합니다</h2>
+    <div class="area-tags">
+      <span class="area-tag main">📍 수원</span>
+      <span class="area-tag main">📍 광진구</span>
+      <span class="area-tag">성동구</span>
+      <span class="area-tag">강동구</span>
+      <span class="area-tag">송파구</span>
+      <span class="area-tag">군포</span>
+      <span class="area-tag">안양</span>
+      <span class="area-tag">기타 문의</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2 class="section-title">오염 사진 한 장으로<br>시작하세요</h2>
+    <p class="cta-desc">
+      사진과 지역을 보내주시면<br>
+      24시간 내 정확한 견적을 안내드립니다
+    </p>
+    <a href="https://pf.kakao.com/_XxkrxjX" target="_blank" class="cta-kakao">
+      💬 카카오채널로 문의하기
+    </a>
+    <a href="tel:01073745328" class="cta-phone">
+      또는 전화로 문의 <strong>010-7374-5328</strong>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>깔끔제이</strong> · 공간 케어 브랜드<br>
+  수원·광진구·서울 동부권 방문 케어<br>
+  <a href="https://blog.naver.com/bchium-j" target="_blank" style="color:rgba(255,255,255,0.4)">blog.naver.com/bchium-j</a>
+  &nbsp;|&nbsp;
+  <a href="https://instagram.com/clean_neat_j" target="_blank" style="color:rgba(255,255,255,0.4)">@clean_neat_j</a>
+</footer>
+
+<!-- FLOATING KAKAO -->
+<a href="https://pf.kakao.com/_XxkrxjX" target="_blank" class="floating-cta" title="카카오 문의">💬</a>
+
+</body>
+</html>
